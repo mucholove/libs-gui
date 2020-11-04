@@ -44,6 +44,44 @@
 @class NSFontDescriptor;
 @class NSGraphicsContext;
 
+#ifndef NS_TYPED_EXTENSIBLE_ENUM
+#define NS_TYPED_EXTENSIBLE_ENUM
+#endif
+
+typedef NSString * NSFontDescriptorAttributeName NS_TYPED_EXTENSIBLE_ENUM;
+typedef NSString * NSFontDescriptorTraitKey NS_TYPED_ENUM;
+typedef NSString * NSFontDescriptorVariationKey NS_TYPED_ENUM;
+typedef NSString * NSFontDescriptorFeatureKey NS_TYPED_EXTENSIBLE_ENUM;
+typedef CGFloat    NSFontWeight NS_TYPED_EXTENSIBLE_ENUM;
+typedef NSString * NSFontDescriptorSystemDesign NS_TYPED_ENUM;
+
+typedef NS_OPTIONS(uint32_t, NSFontDescriptorSymbolicTraits) {
+    NSFontDescriptorTraitItalic       = 1u << 0,
+    NSFontDescriptorTraitBold         = 1u << 1,
+    NSFontDescriptorTraitExpanded     = 1u << 5,
+    NSFontDescriptorTraitCondensed    = 1u << 6,
+    NSFontDescriptorTraitMonoSpace    = 1u << 10,
+    NSFontDescriptorTraitVertical     = 1u << 11,
+    NSFontDescriptorTraitUIOptimized  = 1u << 12,
+    NSFontDescriptorTraitTightLeading = 1u << 15,
+    NSFontDescriptorTraitLooseLeading = 1u << 16,
+    
+    NSFontDescriptorClassMask = 0xF0000000,
+    
+    NSFontDescriptorClassUnknown            = 0u << 28,
+    NSFontDescriptorClassOldStyleSerifs     = 1u << 28,
+    NSFontDescriptorClassTransitionalSerifs = 2u << 28,
+    NSFontDescriptorClassModernSerifs       = 3u << 28,
+    NSFontDescriptorClassClarendonSerifs    = 4u << 28,
+    NSFontDescriptorClassSlabSerifs         = 5u << 28,
+    NSFontDescriptorClassFreeformSerifs     = 7u << 28,
+    NSFontDescriptorClassSansSerif          = 8u << 28,
+    NSFontDescriptorClassOrnamentals        = 9u << 28,
+    NSFontDescriptorClassScripts            = 10u << 28,
+    NSFontDescriptorClassSymbolic           = 12u << 28
+};
+
+
 typedef unsigned int NSGlyph;
 
 enum {

@@ -41,6 +41,7 @@
 @class NSImage;
 @class NSColorSpace;
 
+
 enum _NSControlTint {
     NSDefaultControlTint,
     NSBlueControlTint,
@@ -93,33 +94,48 @@ typedef NSInteger NSColorSystemEffect;
 //
 // Creating an NSColor from Component Values
 //
-+ (NSColor *)colorWithCalibratedHue:(CGFloat)hue
-			 saturation:(CGFloat)saturation
-			 brightness:(CGFloat)brightness
-			      alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithCalibratedRed:(CGFloat)red
-			      green:(CGFloat)green
-			       blue:(CGFloat)blue
-			      alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithCalibratedWhite:(CGFloat)white
-				alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithCatalogName:(NSString *)listName
-			colorName:(NSString *)colorName;
-+ (NSColor *)colorWithDeviceCyan:(CGFloat)cyan
-			 magenta:(CGFloat)magenta
-			  yellow:(CGFloat)yellow
-			   black:(CGFloat)black
-			   alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithDeviceHue:(CGFloat)hue
-		     saturation:(CGFloat)saturation
-		     brightness:(CGFloat)brightness
-			  alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithDeviceRed:(CGFloat)red
-			  green:(CGFloat)green
-			   blue:(CGFloat)blue
-			  alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithDeviceWhite:(CGFloat)white
-			    alpha:(CGFloat)alpha;
++ (NSColor *)
+    colorWithCalibratedHue:(CGFloat)hue
+    saturation:(CGFloat)saturation
+    brightness:(CGFloat)brightness
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithCalibratedRed:(CGFloat)red
+    green:(CGFloat)green
+    blue:(CGFloat)blue
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithCalibratedWhite:(CGFloat)white
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithCatalogName:(NSString *)listName
+    colorName:(NSString *)colorName;
+    
++ (NSColor *)
+    colorWithDeviceCyan:(CGFloat)cyan
+    magenta:(CGFloat)magenta
+    yellow:(CGFloat)yellow
+    black:(CGFloat)black
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithDeviceHue:(CGFloat)hue
+    saturation:(CGFloat)saturation
+    brightness:(CGFloat)brightness
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithDeviceRed:(CGFloat)red
+    green:(CGFloat)green
+    blue:(CGFloat)blue
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithDeviceWhite:(CGFloat)white
+    alpha:(CGFloat)alpha;
 
 //
 // Creating an NSColor With Preset Components
@@ -150,20 +166,20 @@ typedef NSInteger NSColorSystemEffect;
 // Retrieving a Set of Components
 //
 - (void)getCyan:(CGFloat *)cyan
-	magenta:(CGFloat *)magenta
-	 yellow:(CGFloat *)yellow
-	  black:(CGFloat *)black
-	  alpha:(CGFloat *)alpha;
+    magenta:(CGFloat *)magenta
+     yellow:(CGFloat *)yellow
+      black:(CGFloat *)black
+      alpha:(CGFloat *)alpha;
 - (void)getHue:(CGFloat *)hue
     saturation:(CGFloat *)saturation
     brightness:(CGFloat *)brightness
-	 alpha:(CGFloat *)alpha;
+     alpha:(CGFloat *)alpha;
 - (void)getRed:(CGFloat *)red
-	 green:(CGFloat *)green
-	  blue:(CGFloat *)blue
-	 alpha:(CGFloat *)alpha;
+     green:(CGFloat *)green
+      blue:(CGFloat *)blue
+     alpha:(CGFloat *)alpha;
 - (void)getWhite:(CGFloat *)white
-	   alpha:(CGFloat *)alpha;
+       alpha:(CGFloat *)alpha;
 
 //
 // Retrieving Individual Components
@@ -191,7 +207,7 @@ typedef NSInteger NSColorSystemEffect;
 - (NSString *)colorSpaceName;
 - (NSColor *)colorUsingColorSpaceName:(NSString *)colorSpace;
 - (NSColor *)colorUsingColorSpaceName:(NSString *)colorSpace
-			       device:(NSDictionary *)deviceDescription;
+                   device:(NSDictionary *)deviceDescription;
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_4, GS_API_LATEST)
 // + (NSColor *)colorWithCIColor:(CIColor *)color;
 + (NSColor *)colorWithColorSpace:(NSColorSpace *)space
@@ -207,14 +223,14 @@ typedef NSInteger NSColorSystemEffect;
 // Changing the Color
 //
 - (NSColor *)blendedColorWithFraction:(CGFloat)fraction
-			      ofColor:(NSColor *)aColor;
+                  ofColor:(NSColor *)aColor;
 - (NSColor *)colorWithAlphaComponent:(CGFloat)alpha;
 
 //
 // Copying and Pasting
 //
-+ (NSColor *)colorFromPasteboard:(NSPasteboard *)pasteBoard;
-- (void)writeToPasteboard:(NSPasteboard *)pasteBoard;
+// + (NSColor *)colorFromPasteboard:(NSPasteboard *)pasteBoard;
+// - (void)writeToPasteboard:(NSPasteboard *)pasteBoard;
 
 //
 // Drawing
@@ -233,7 +249,8 @@ typedef NSInteger NSColorSystemEffect;
 - (NSColor*) highlightWithLevel: (CGFloat)level;
 - (NSColor*) shadowWithLevel: (CGFloat)level;
 
-+ (NSColor*)colorWithPatternImage:(NSImage*)image;
+// + (NSColor*)colorWithPatternImage:(NSImage*)image;
+
 + (NSColor*)colorForControlTint:(NSControlTint)controlTint;
 
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_3, GS_API_LATEST)
@@ -288,32 +305,40 @@ typedef NSInteger NSColorSystemEffect;
 #endif
 
 // Pattern colour
-- (NSImage*) patternImage;
+// - (NSImage*) patternImage;
 
 // Tooltip colours
 + (NSColor*) toolTipColor;
 + (NSColor*) toolTipTextColor;
 
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_7, GS_API_LATEST)
-+ (NSColor *)colorWithSRGBRed:(CGFloat)red
-                        green:(CGFloat)green
-                         blue:(CGFloat)blue
-                        alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithGenericGamma22White:(CGFloat)white
-                                    alpha:(CGFloat)alpha;
++ (NSColor *)
+    colorWithSRGBRed:(CGFloat)red
+    green:(CGFloat)green
+    blue:(CGFloat)blue
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithGenericGamma22White:(CGFloat)white
+    alpha:(CGFloat)alpha;
 #endif
 
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_9, GS_API_LATEST)
-+ (NSColor *)colorWithRed:(CGFloat)red
-                    green:(CGFloat)green
-                     blue:(CGFloat)blue
-                    alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithHue:(CGFloat)hue
-               saturation:(CGFloat)saturation
-               brightness:(CGFloat)brightness
-                    alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithWhite:(CGFloat)white
-                      alpha:(CGFloat)alpha;
++ (NSColor *)
+    colorWithRed:(CGFloat)red
+    green:(CGFloat)green
+    blue:(CGFloat)blue
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithHue:(CGFloat)hue
+    saturation:(CGFloat)saturation
+    brightness:(CGFloat)brightness
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithWhite:(CGFloat)white
+    alpha:(CGFloat)alpha;
 #endif
 
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_10, GS_API_LATEST)
@@ -329,15 +354,18 @@ typedef NSInteger NSColorSystemEffect;
 #endif
 
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_12, GS_API_LATEST)
-+ (NSColor *)colorWithDisplayP3Red:(CGFloat)red
-                             green:(CGFloat)green
-                              blue:(CGFloat)blue
-                             alpha:(CGFloat)alpha;
-+ (NSColor *)colorWithColorSpace:(NSColorSpace *)space
-                             hue:(CGFloat)hue
-                      saturation:(CGFloat)saturation
-                      brightness:(CGFloat)brightness
-                           alpha:(CGFloat)alpha;
++ (NSColor *)
+    colorWithDisplayP3Red:(CGFloat)red
+    green:(CGFloat)green
+    blue:(CGFloat)blue
+    alpha:(CGFloat)alpha;
+    
++ (NSColor *)
+    colorWithColorSpace:(NSColorSpace *)space
+    hue:(CGFloat)hue
+    saturation:(CGFloat)saturation
+    brightness:(CGFloat)brightness
+    alpha:(CGFloat)alpha;
 #endif
 
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_13, GS_API_LATEST)
@@ -358,7 +386,7 @@ typedef NSInteger NSColorSystemEffect;
 
 @end
 
-APPKIT_EXPORT NSString	*NSSystemColorsDidChangeNotification;
+APPKIT_EXPORT NSString    *NSSystemColorsDidChangeNotification;
 
 #if OS_API_VERSION(GS_API_NONE, GS_API_NONE)
 @interface NSCoder (NSCoderAdditions)
